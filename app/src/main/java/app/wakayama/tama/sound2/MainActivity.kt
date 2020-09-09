@@ -30,5 +30,47 @@ class MainActivity : AppCompatActivity() {
 
             true
         }
+
+        val pianoSound = MediaPlayer.create(this,R.raw.piano_sound)
+
+        pianoImage.setOnTouchListener { view, event ->
+            //タッチが始まったときに
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                pianoImage.setImageResource(R.drawable.piano_playing_image)
+                //巻き戻し
+                pianoSound.seekTo(0)
+
+                pianoSound.start()
+
+            }
+            else if (event.action == MotionEvent.ACTION_UP){
+                pianoImage.setImageResource(R.drawable.piano_image)
+
+            }
+
+            //タッチの処理終える
+            true
+        }
+
+        val guitarSound = MediaPlayer.create(this,R.raw.guitar_sound)
+
+        guitarImage.setOnTouchListener { view, event ->
+            //タッチが始まったときに
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                guitarImage.setImageResource(R.drawable.guitar_playing_image)
+                //巻き戻し
+                guitarSound.seekTo(0)
+
+                guitarSound.start()
+
+            }
+            else if (event.action == MotionEvent.ACTION_UP){
+                guitarImage.setImageResource(R.drawable.guitar_image)
+
+            }
+
+            //タッチの処理終える
+            true
+        }
     }
 }
